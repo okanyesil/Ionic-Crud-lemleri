@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {TodoModel} from './Models/todo.model';
 
 const routes: Routes = [
   {
@@ -7,9 +8,25 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
+    path: 'ekle',
+    loadChildren: () => import('./ekle/ekle.module').then(m => m.EklePageModule)
+  },
+  {
+    path: 'guncelle/:title',
+    loadChildren: () => import('./guncelle/guncelle.module').then(m => m.GuncellePageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'ekle',
+    loadChildren: () => import('./ekle/ekle.module').then( m => m.EklePageModule)
+  },
+  {
+    path: 'guncelle',
+    loadChildren: () => import('./guncelle/guncelle.module').then( m => m.GuncellePageModule)
   },
 ];
 

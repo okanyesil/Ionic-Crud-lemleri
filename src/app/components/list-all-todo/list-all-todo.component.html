@@ -1,0 +1,19 @@
+<ion-list>
+  <ion-item-sliding *ngFor="let todo of allTodo">
+    <ion-item>
+      <ion-label>{{todo.title}}</ion-label>
+      <ion-button fill="clear" (click)="toggle(todo.key)">
+        <ion-icon name="chevron-down-outline" *ngIf="!todo.toggle"></ion-icon>
+        <ion-icon name="chevron-up-outline"  *ngIf="todo.toggle"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <app-todo-detail [todo]="todo" *ngIf="todo.toggle" ></app-todo-detail>
+    <ion-item-options side="end">
+      <ion-item-option color="warning" (click)="updateTodo(todo)">Düzelt</ion-item-option>
+      <ion-item-option color="danger" (click)="deleteTodo(todo.key)">Sil</ion-item-option>
+    </ion-item-options>
+
+  </ion-item-sliding>
+</ion-list>
+
+
